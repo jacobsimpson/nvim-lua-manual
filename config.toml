@@ -1,0 +1,20 @@
+baseURL = "http://jacobsimpson.github.io/"
+languageCode = "en-us"
+title = "A Technical Travesty"
+theme = "hugo-theme-bootstrap4-blog"
+copyright = "Except where otherwise noted, content on this site is licensed under a <a rel='license' href='https://creativecommons.org/licenses/by-sa/4.0/'>Creative Commons Attribution 4.0 International license</a>."
+
+[params]
+  # Site author
+  author = "Jacob Simpson"
+
+  # Description/subtitle for homepage (can be Markdown)
+  description = "Technical notes"
+
+  # Format dates with Go's time formatting
+  date_format = "Mon Jan 02, 2006"
+
+[params.sidebar]
+    # Optional about block for sidebar (can be Markdown)
+    about = "*A Technical Travesty*, remembering the things I forget.<br><br>[Read more →](/about)"
+

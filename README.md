@@ -1,8 +1,12 @@
-# Notes
+# Blog Site
 
-Make sure you are using Python 2.7 before you run jekyll.
+A statically generated site using [Hugo](https://gohugo.io/getting-started/installing/).
 
-```bash
-bundle exec jekyll serve
+## Development
+
+```sh
+brew install hugo
+hugo new post/my-first-post.md
+hugo server -D
 ```
 
