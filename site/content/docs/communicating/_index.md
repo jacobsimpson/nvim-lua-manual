@@ -26,21 +26,23 @@ vim.api.nvim_set_var('something', 'value')
 
 Which would appear in VimScript as:
 
-{{< highlight viml >}}
+{{< highlight vim >}}
 echo g:something
 {{< / highlight >}}
 
 For `v:` variables, like the predefined `v:servername`:
 
-{{< highlight viml >}}
+{{< highlight vim >}}
 echo v:servername
 {{< / highlight >}}
 
 becomes:
 
 {{< highlight lua >}}
-local servername = vim.api.nvim_get_vvar("servername")
+print(vim.api.nvim_get_vvar("servername"))
 {{< / highlight >}}
+
+And for general expression evaluation, which can include accessing variables:
 
 {{< highlight lua >}}
 local servername = vim.api.nvim_eval("v:servername")
