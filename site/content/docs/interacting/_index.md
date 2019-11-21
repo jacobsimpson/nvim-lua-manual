@@ -14,6 +14,8 @@ To put a message at the bottom of the screen, and in the `:messages` buffer:
 print("Something really important.")
 ```
 
+This is analogous to the `echo` command in VimScript.
+
 ## Displaying something
 
 there is a `confirm` API method in Vim documentation that asks questions and returns the selected response.
