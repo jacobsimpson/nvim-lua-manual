@@ -28,8 +28,10 @@ there is a `confirm` API method in Vim documentation that asks questions and ret
 
 #### For a tool tip
 
-This uses Neovim's new floating window capability to overlay a window. The
-window is backed by a buffer containing the two lines, "test" and "text".
+This uses Neovim's new [floating
+window](https://neovim.io/doc/user/api.html#api-floatwin) capability to overlay
+a window. The window is backed by a buffer containing the two lines, "test" and
+"text".
 
 {{< highlight lua >}}
 local buf = vim.api.nvim_create_buf(false, true)
