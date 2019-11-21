@@ -1,0 +1,3 @@
+baseURL = "http://jacobsimpson.github.io"
+languageCode = "en-us"
+title = "Scripting Neovim with Lua"
