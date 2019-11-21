@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Buffers and Windows"><meta property="og:title" content="" />
+<meta name="description" content="Buffers and Windows"><meta property="og:title" content="Buffers and Windows" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://jacobsimpson.github.io/docs/buffers-and-windows/" />
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.839f2dba0cb3de6ef9ba220f9c62ed2324cd45180025044a6f8fbe7e10efa453.js" integrity="sha256-g58tugyz3m75uiIPnGLtIyTNRRgAJQRKb4&#43;&#43;fhDvpFM="></script>
+<script defer src="/en.search.min.f8bd81b39333232597285f6430d80a88189645cc0ef5fbd4d739512bc3d4aca6.js" integrity="sha256-&#43;L2Bs5MzIyWXKF9kMNgKiBiWRcwO9fvU1zlRK8PUrKY="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/buffers-and-windows/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -127,6 +127,32 @@ https://github.com/alex-shpak/hugo-book
     
       
 
+  <a href="/docs/job-control/" >
+      Job Control
+  </a>
+
+
+    
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
   <a href="/docs/buffers-and-windows/"  class="active">
       Buffers and Windows
   </a>
@@ -144,32 +170,6 @@ https://github.com/alex-shpak/hugo-book
     
   </ul>
   
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/docs/job-control/" >
-      Job Control
-  </a>
-
-
-    
-
-    
-
-
-
 
 
 
@@ -259,21 +259,18 @@ https://github.com/alex-shpak/hugo-book
 
 <h3 id="setting-options-on-a-buffer">Setting Options on a Buffer</h3>
 
-<pre><code class="language-lua">vim.api.nvim_buf_set_option(statusBuffer, 'buftype', 'nofile')
-vim.api.nvim_buf_set_option(statusBuffer, 'filetype', 'lua')
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">vim.api.nvim_buf_set_option(statusBuffer, <span style="color:#e6db74">&#39;buftype&#39;</span>, <span style="color:#e6db74">&#39;nofile&#39;</span>)
+vim.api.nvim_buf_set_option(statusBuffer, <span style="color:#e6db74">&#39;filetype&#39;</span>, <span style="color:#e6db74">&#39;lua&#39;</span>)</code></pre></div>
 
 <p>I would think that it would be possible to set the <code>modifiable</code> attribute in
 the same way as the attributes above, using <code>nvim_buf_set_option</code>, but I&rsquo;ve not
 been able to figure out the syntax for that. So, I do it this way:</p>
 
-<pre><code class="language-lua">vim.api.nvim_command(&quot;setlocal nomodifiable&quot;)
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">vim.api.nvim_command(<span style="color:#e6db74">&#34;setlocal nomodifiable&#34;</span>)</code></pre></div>
 
 <p>The name of a buffer is not a standard option, and has it&rsquo;s own function:</p>
 
-<pre><code class="language-lua">vim.api.nvim_buf_set_name(statusBuffer, 'hg status')
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">vim.api.nvim_buf_set_name(statusBuffer, <span style="color:#e6db74">&#39;hg status&#39;</span>)</code></pre></div>
 </article>
 
       <div class="book-footer justify-between">

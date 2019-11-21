@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scripting Neovim with Lua</title>
+    <title>Buffers and Windows on Scripting Neovim with Lua</title>
     <link>http://jacobsimpson.github.io/docs/buffers-and-windows/</link>
-    <description>Recent content on Scripting Neovim with Lua</description>
+    <description>Recent content in Buffers and Windows on Scripting Neovim with Lua</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     

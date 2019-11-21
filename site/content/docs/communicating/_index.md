@@ -15,22 +15,22 @@ interactions between VimScript and Lua.
 
 ### Accessing VimL Variables
 
-```lua
+{{< highlight lua >}}
 local servername = vim.api.nvim_eval("v:servername")
-```
+{{< / highlight >}}
 
 ### Calling VimL Functions
 
-```lua
+{{< highlight lua >}}
 nvim_call_function(...)
-```
+{{< / highlight >}}
 
 ## From VimScript
 
 ### Calling Lua Code from VimL
 
-```lua
+{{< highlight lua >}}
 nvim_execute_lua(...)
-```
+{{< / highlight >}}
 
 
