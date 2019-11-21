@@ -3,15 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/example/table-of-contents/with-toc/</loc>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/example/</loc>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/example/table-of-contents/without-toc/</loc>
+    <loc>http://jacobsimpson.github.io/docs/basic-plugin/</loc>
   </url>
   
   <url>
@@ -25,11 +17,19 @@
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/example/table-of-contents/</loc>
+    <loc>http://jacobsimpson.github.io/docs/communicating/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/example/2nd/</loc>
+    <loc>http://jacobsimpson.github.io/docs/buffers-and-windows/</loc>
+  </url>
+  
+  <url>
+    <loc>http://jacobsimpson.github.io/docs/job-control/</loc>
+  </url>
+  
+  <url>
+    <loc>http://jacobsimpson.github.io/docs/interacting/</loc>
   </url>
   
   <url>
@@ -103,51 +103,7 @@
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/example/2nd/3rd/4th/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/example/2nd/3rd/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/example/hidden/</loc>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/shortcodes/</loc>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/shortcodes/buttons/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/shortcodes/columns/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/shortcodes/expand/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/shortcodes/katex/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/shortcodes/mermaid/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jacobsimpson.github.io/docs/shortcodes/tabs/</loc>
-    <priority>0</priority>
+    <loc>http://jacobsimpson.github.io/docs/basic-plugin/hidden/</loc>
   </url>
   
   <url>

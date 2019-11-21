@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.757c257470a30960989d24833c7130840babd8c5c1d7a8bddeac13a473bf98ac.js" integrity="sha256-dXwldHCjCWCYnSSDPHEwhAur2MXB16i93qwTpHO/mKw="></script>
+<script defer src="/en.search.min.02ee42646fc1f65c77d09ca7a46551a7aea88aebc6b27ad64e2fa27578f8e9ab.js" integrity="sha256-Au5CZG/B9lx30JynpGVRp66oiuvGsnrWTi&#43;idXj46as="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -73,34 +73,12 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li  class="book-section-flat" >
-    
-      
-
-  <a href="/docs/example/" >
-      Scripting Neovim with Lua
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
   <li >
     
       
 
-  <a href="/docs/example/table-of-contents/" >
-      Table of Contents
+  <a href="/docs/basic-plugin/" >
+      A Basic Lua Plugin
   </a>
 
 
@@ -110,32 +88,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-      
-        <li>
-
-  <a href="/docs/example/table-of-contents/with-toc/" >
-      Do a thing
-  </a>
-
-</li>
-      
-    
-      
-        <li>
-
-  <a href="/docs/example/table-of-contents/without-toc/" >
-      Without ToC
-  </a>
-
-</li>
-      
-    
-  </ul>
-  
 
 
 
@@ -151,8 +103,8 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/example/2nd/" >
-      2nd
+  <a href="/docs/communicating/" >
+      VimL to Lua and back
   </a>
 
 
@@ -162,16 +114,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
 
 
 
@@ -183,81 +125,73 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li  class="book-section-flat" >
-    
-      <span>Shortcodes</span>
-    
-
-    
-
-
-
-
-  
-  <ul>
+  <li >
     
       
-        <li>
 
-  <a href="/docs/shortcodes/buttons/" >
-      Buttons
+  <a href="/docs/buffers-and-windows/" >
+      Buffers and Windows
   </a>
 
-</li>
+
+    
+
+    
+
+
+
+
+
+
+  </li>
+
+
       
     
       
-        <li>
+        
 
-  <a href="/docs/shortcodes/columns/" >
-      Columns
+  <li >
+    
+      
+
+  <a href="/docs/job-control/" >
+      Job Control
   </a>
 
-</li>
+
+    
+
+    
+
+
+
+
+
+
+  </li>
+
+
       
     
       
-        <li>
+        
 
-  <a href="/docs/shortcodes/expand/" >
-      Expand
+  <li >
+    
+      
+
+  <a href="/docs/interacting/" >
+      Interacting with the User
   </a>
 
-</li>
-      
+
     
-      
-        <li>
 
-  <a href="/docs/shortcodes/katex/" >
-      Katex
-  </a>
-
-</li>
-      
     
-      
-        <li>
 
-  <a href="/docs/shortcodes/mermaid/" >
-      Mermaid
-  </a>
 
-</li>
-      
-    
-      
-        <li>
 
-  <a href="/docs/shortcodes/tabs/" >
-      Tabs
-  </a>
-
-</li>
-      
-    
-  </ul>
-  
 
 
 
@@ -324,100 +258,6 @@ possible. However, at heart, I am a pragmatist, so where it makes sense, I put
 things in VimScript. <code>autocmd</code>, key mappings, commands and the like. I don&rsquo;t
 cover how to do any of that stuff in much depth here, there are much better
 resources available.</p>
-
-<h1 id="a-basic-running-plugin">A Basic Running Plugin</h1>
-
-<p>Clone and own a <a href="https://github.com/jacobsimpson/nvim-example-lua-plugin">working
-example</a>.</p>
-
-<p>TODO: There have been a lot of Neovim improvements, this example could probably
-use some  updates. Also, if the <code>luamodule</code> was named <code>myluamodule</code> it would be
-just a little more obvious that the directory name/module name can be changed.</p>
-
-<p>TODO: Make a bash script that downloads and renames everything, so that you can
-run one of those fancy curl commands and have a working plugin in a moment.</p>
-
-<h2 id="communicating-between-viml-and-lua">Communicating Between VimL and Lua</h2>
-
-<h3 id="accessing-viml-variables">Accessing VimL Variables</h3>
-
-<pre><code class="language-lua">local servername = vim.api.nvim_eval(&quot;v:servername&quot;)
-</code></pre>
-
-<h1 id="job-control">Job Control</h1>
-
-<pre><code class="language-lua">vim.fn.jobstart(&quot;ls&quot;)
-</code></pre>
-
-<h3 id="calling-lua-code-from-viml">Calling Lua Code from VimL</h3>
-
-<pre><code class="language-lua">nvim_execute_lua(...)
-</code></pre>
-
-<h3 id="calling-viml-code-from-lua">Calling VimL Code from Lua</h3>
-
-<pre><code class="language-lua">nvim_call_function(...)
-</code></pre>
-
-<h2 id="user-interface-bits">User Interface Bits</h2>
-
-<h3 id="displaying-something">Displaying something</h3>
-
-<p>there is a <code>confirm</code> API method in Vim documentation that asks questions and returns the selected response.</p>
-
-<h4 id="echo">Echo</h4>
-
-<h4 id="a-split">A Split</h4>
-
-<h4 id="a-floating-window">A Floating Window</h4>
-
-<h5 id="a-floating-window-with-borders">A Floating Window with Borders</h5>
-
-<h5 id="for-a-tool-tip">For a tool tip</h5>
-
-<pre><code class="language-lua">let buf = nvim_create_buf(v:false, v:true)
-    call nvim_buf_set_lines(buf, 0, -1, v:true, [&quot;test&quot;, &quot;text&quot;])
-    let opts = {'relative': 'cursor', 'width': 10, 'height': 2, 'col': 0,
-        \ 'row': 1, 'anchor': 'NW', 'style': 'minimal'}
-    let win = nvim_open_win(buf, 0, opts)
-    &quot; optional: change highlight, otherwise Pmenu is used
-    call nvim_win_set_option(win, 'winhl', 'Normal:MyHighlight')
-</code></pre>
-
-<h2 id="interacting-with-neovim">Interacting With Neovim</h2>
-
-<h3 id="reading-a-buffer">Reading a Buffer</h3>
-
-<h3 id="modifying-a-buffer">Modifying a Buffer</h3>
-
-<h3 id="clearing-a-buffer">Clearing a Buffer</h3>
-
-<h3 id="replacing-a-buffer">Replacing a Buffer</h3>
-
-<h3 id="setting-options-on-a-buffer">Setting Options on a Buffer</h3>
-
-<pre><code class="language-lua">vim.api.nvim_buf_set_option(statusBuffer, 'buftype', 'nofile')
-vim.api.nvim_buf_set_option(statusBuffer, 'filetype', 'lua')
-</code></pre>
-
-<p>I would think that it would be possible to set the <code>modifiable</code> attribute in
-the same way as the attributes above, using <code>nvim_buf_set_option</code>, but I&rsquo;ve not
-been able to figure out the syntax for that. So, I do it this way:</p>
-
-<pre><code class="language-lua">vim.api.nvim_command(&quot;setlocal nomodifiable&quot;)
-</code></pre>
-
-<p>The name of a buffer is not a standard option, and has it&rsquo;s own function:</p>
-
-<pre><code class="language-lua">vim.api.nvim_buf_set_name(statusBuffer, 'hg status')
-</code></pre>
-
-<h3 id="networking-communication-and-job-control">Networking, Communication and Job Control</h3>
-
-<h4 id="how-to-use-neovim-to-send-a-message-to-a-running-neovim-instance">How to use Neovim to send a message to a Running Neovim instance</h4>
-
-<pre><code class="language-sh">nvim --noplugin --cmd &quot;lua vim.fn.rpcrequest(vim.fn.sockconnect('pipe', '/var/folders/nh/lwpxl66111j103y85rw0kdvw0000gn/T/nvimNdff2D/0', { rpc = true }), 'nvim_command', ':e ~/.zshrc')&quot; --cmd &quot;q&quot; --headless
-</code></pre>
 </article>
 
       <div class="book-footer justify-between">
@@ -441,46 +281,6 @@ been able to figure out the syntax for that. So, I do it this way:</p>
 <li><a href="#building-neovim-plugins-in-lua">Building Neovim Plugins in Lua</a>
 <ul>
 <li><a href="#first">First</a></li>
-</ul></li>
-<li><a href="#a-basic-running-plugin">A Basic Running Plugin</a>
-<ul>
-<li><a href="#communicating-between-viml-and-lua">Communicating Between VimL and Lua</a>
-<ul>
-<li><a href="#accessing-viml-variables">Accessing VimL Variables</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#job-control">Job Control</a>
-<ul>
-<li>
-<ul>
-<li><a href="#calling-lua-code-from-viml">Calling Lua Code from VimL</a></li>
-<li><a href="#calling-viml-code-from-lua">Calling VimL Code from Lua</a></li>
-</ul></li>
-<li><a href="#user-interface-bits">User Interface Bits</a>
-<ul>
-<li><a href="#displaying-something">Displaying something</a>
-<ul>
-<li><a href="#echo">Echo</a></li>
-<li><a href="#a-split">A Split</a></li>
-<li><a href="#a-floating-window">A Floating Window</a>
-<ul>
-<li><a href="#a-floating-window-with-borders">A Floating Window with Borders</a></li>
-<li><a href="#for-a-tool-tip">For a tool tip</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#interacting-with-neovim">Interacting With Neovim</a>
-<ul>
-<li><a href="#reading-a-buffer">Reading a Buffer</a></li>
-<li><a href="#modifying-a-buffer">Modifying a Buffer</a></li>
-<li><a href="#clearing-a-buffer">Clearing a Buffer</a></li>
-<li><a href="#replacing-a-buffer">Replacing a Buffer</a></li>
-<li><a href="#setting-options-on-a-buffer">Setting Options on a Buffer</a></li>
-<li><a href="#networking-communication-and-job-control">Networking, Communication and Job Control</a>
-<ul>
-<li><a href="#how-to-use-neovim-to-send-a-message-to-a-running-neovim-instance">How to use Neovim to send a message to a Running Neovim instance</a></li>
-</ul></li>
-</ul></li>
 </ul></li>
 </ul>
 </nav>

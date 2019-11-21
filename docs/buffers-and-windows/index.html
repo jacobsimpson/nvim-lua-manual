@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Docs"><meta property="og:title" content="Docs" />
+<meta name="description" content="Buffers and Windows"><meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://jacobsimpson.github.io/docs/" />
+<meta property="og:url" content="http://jacobsimpson.github.io/docs/buffers-and-windows/" />
 
-<title>Docs | Scripting Neovim with Lua</title>
+<title>Buffers and Windows | Scripting Neovim with Lua</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +18,7 @@
 
 <script defer src="/en.search.min.02ee42646fc1f65c77d09ca7a46551a7aea88aebc6b27ad64e2fa27578f8e9ab.js" integrity="sha256-Au5CZG/B9lx30JynpGVRp66oiuvGsnrWTi&#43;idXj46as="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/index.xml" title="Scripting Neovim with Lua" />
+<link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/buffers-and-windows/index.xml" title="Scripting Neovim with Lua" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -127,7 +127,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/buffers-and-windows/" >
+  <a href="/docs/buffers-and-windows/"  class="active">
       Buffers and Windows
   </a>
 
@@ -138,6 +138,12 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+  </ul>
+  
 
 
 
@@ -235,11 +241,40 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>Docs</strong>
+  <strong>Buffers and Windows</strong>
 </header>
 
       
-<article class="markdown"></article>
+<article class="markdown">
+
+<h1 id="buffers-and-windows">Buffers and Windows</h1>
+
+<h3 id="reading-a-buffer">Reading a Buffer</h3>
+
+<h3 id="modifying-a-buffer">Modifying a Buffer</h3>
+
+<h3 id="clearing-a-buffer">Clearing a Buffer</h3>
+
+<h3 id="replacing-a-buffer">Replacing a Buffer</h3>
+
+<h3 id="setting-options-on-a-buffer">Setting Options on a Buffer</h3>
+
+<pre><code class="language-lua">vim.api.nvim_buf_set_option(statusBuffer, 'buftype', 'nofile')
+vim.api.nvim_buf_set_option(statusBuffer, 'filetype', 'lua')
+</code></pre>
+
+<p>I would think that it would be possible to set the <code>modifiable</code> attribute in
+the same way as the attributes above, using <code>nvim_buf_set_option</code>, but I&rsquo;ve not
+been able to figure out the syntax for that. So, I do it this way:</p>
+
+<pre><code class="language-lua">vim.api.nvim_command(&quot;setlocal nomodifiable&quot;)
+</code></pre>
+
+<p>The name of a buffer is not a standard option, and has it&rsquo;s own function:</p>
+
+<pre><code class="language-lua">vim.api.nvim_buf_set_name(statusBuffer, 'hg status')
+</code></pre>
+</article>
 
       <div class="book-footer justify-between">
   
@@ -255,6 +290,24 @@ https://github.com/alex-shpak/hugo-book
 
     
   
+
+  <aside class="book-toc levels-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#buffers-and-windows">Buffers and Windows</a>
+<ul>
+<li>
+<ul>
+<li><a href="#reading-a-buffer">Reading a Buffer</a></li>
+<li><a href="#modifying-a-buffer">Modifying a Buffer</a></li>
+<li><a href="#clearing-a-buffer">Clearing a Buffer</a></li>
+<li><a href="#replacing-a-buffer">Replacing a Buffer</a></li>
+<li><a href="#setting-options-on-a-buffer">Setting Options on a Buffer</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
 
 
 

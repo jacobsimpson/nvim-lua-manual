@@ -4,21 +4,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Buttons"><meta property="og:title" content="" />
-<meta property="og:description" content=" Buttons Buttons are styled links that can lead to local page or external link.
-{{&lt; button relref=&quot;/&quot; [class=&quot;...&quot;] &gt;}}Get Home{{&lt; /button &gt;}} {{&lt; button href=&quot;https://github.com/alex-shpak/hugo-book&quot; &gt;}}Contribute{{&lt; /button &gt;}}  Example  Get Home  Contribute  " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://jacobsimpson.github.io/docs/shortcodes/buttons/" />
+<meta name="description" content="Job Control"><meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://jacobsimpson.github.io/docs/job-control/" />
 
-<title>Buttons | Scripting Neovim with Lua</title>
+<title>Job Control | Scripting Neovim with Lua</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.d0e7608e074392d5f878e8b2c4cf1b3353a49c3dfeb09ffb3119acb36a6b16a9.js" integrity="sha256-0OdgjgdDktX4eOiyxM8bM1OknD3&#43;sJ/7MRmss2prFqk="></script>
+<script defer src="/en.search.min.02ee42646fc1f65c77d09ca7a46551a7aea88aebc6b27ad64e2fa27578f8e9ab.js" integrity="sha256-Au5CZG/B9lx30JynpGVRp66oiuvGsnrWTi&#43;idXj46as="></script>
 
+<link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/job-control/index.xml" title="Scripting Neovim with Lua" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -102,7 +102,7 @@ https://github.com/alex-shpak/hugo-book
       
 
   <a href="/docs/communicating/" >
-      Communicating
+      VimL to Lua and back
   </a>
 
 
@@ -153,8 +153,8 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/interacting/" >
-      Interacting
+  <a href="/docs/job-control/"  class="active">
+      Job Control
   </a>
 
 
@@ -164,6 +164,12 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+  </ul>
+  
 
 
 
@@ -175,81 +181,21 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li  class="book-section-flat" >
-    
-      <span>Shortcodes</span>
-    
-
-    
-
-
-
-
-  
-  <ul>
+  <li >
     
       
-        <li>
 
-  <a href="/docs/shortcodes/buttons/"  class="active">
-      Buttons
+  <a href="/docs/interacting/" >
+      Interacting with the User
   </a>
 
-</li>
-      
+
     
-      
-        <li>
 
-  <a href="/docs/shortcodes/columns/" >
-      Columns
-  </a>
-
-</li>
-      
     
-      
-        <li>
 
-  <a href="/docs/shortcodes/expand/" >
-      Expand
-  </a>
 
-</li>
-      
-    
-      
-        <li>
 
-  <a href="/docs/shortcodes/katex/" >
-      Katex
-  </a>
-
-</li>
-      
-    
-      
-        <li>
-
-  <a href="/docs/shortcodes/mermaid/" >
-      Mermaid
-  </a>
-
-</li>
-      
-    
-      
-        <li>
-
-  <a href="/docs/shortcodes/tabs/" >
-      Tabs
-  </a>
-
-</li>
-      
-    
-  </ul>
-  
 
 
 
@@ -295,43 +241,23 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>Buttons</strong>
+  <strong>Job Control</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="buttons">Buttons</h1>
+<h1 id="job-control">Job Control</h1>
 
-<p>Buttons are styled links that can lead to local page or external link.</p>
-
-<pre><code class="language-tpl">{{&lt; button relref=&quot;/&quot; [class=&quot;...&quot;] &gt;}}Get Home{{&lt; /button &gt;}}
-{{&lt; button href=&quot;https://github.com/alex-shpak/hugo-book&quot; &gt;}}Contribute{{&lt; /button &gt;}}
+<pre><code class="language-lua">vim.fn.jobstart(&quot;ls&quot;)
 </code></pre>
 
-<h2 id="example">Example</h2>
+<h2 id="networking-communication-and-job-control">Networking, Communication and Job Control</h2>
 
-<p>
+<h2 id="how-to-use-neovim-to-send-a-message-to-a-running-neovim-instance">How to use Neovim to send a message to a Running Neovim instance</h2>
 
-
-
-  
-
-<a  href="/"   class="book-btn">
-  Get Home
-</a>
-
-
-
-
-  
-  
-
-
-<a  href="https://github.com/alex-shpak/hugo-book"   target="_blank"  class="book-btn">
-  Contribute
-</a>
-</p>
+<pre><code class="language-sh">nvim --noplugin --cmd &quot;lua vim.fn.rpcrequest(vim.fn.sockconnect('pipe', '/var/folders/nh/lwpxl66111j103y85rw0kdvw0000gn/T/nvimNdff2D/0', { rpc = true }), 'nvim_command', ':e ~/.zshrc')&quot; --cmd &quot;q&quot; --headless
+</code></pre>
 </article>
 
       <div class="book-footer justify-between">
@@ -352,9 +278,10 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#buttons">Buttons</a>
+<li><a href="#job-control">Job Control</a>
 <ul>
-<li><a href="#example">Example</a></li>
+<li><a href="#networking-communication-and-job-control">Networking, Communication and Job Control</a></li>
+<li><a href="#how-to-use-neovim-to-send-a-message-to-a-running-neovim-instance">How to use Neovim to send a message to a Running Neovim instance</a></li>
 </ul></li>
 </ul>
 </nav>
