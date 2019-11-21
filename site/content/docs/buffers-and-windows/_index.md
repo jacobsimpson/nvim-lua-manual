@@ -16,22 +16,19 @@ title: "Buffers and Windows"
 
 ### Setting Options on a Buffer
 
-{{< highlight lua >}}
-vim.api.nvim_buf_set_option(statusBuffer, 'buftype', 'nofile')
-vim.api.nvim_buf_set_option(statusBuffer, 'filetype', 'lua')
-{{< / highlight >}}
-
-I would think that it would be possible to set the `modifiable` attribute in
-the same way as the attributes above, using `nvim_buf_set_option`, but I've not
-been able to figure out the syntax for that. So, I do it this way:
+To set options on the current buffer, use 0 as the first argument. To specify a
+buffer, use the value returned by `nvim.api.nvim_create_buf()` or
+`nvim.api.nvim_list_bufs()`.
 
 {{< highlight lua >}}
-vim.api.nvim_command("setlocal nomodifiable")
+vim.api.nvim_buf_set_option(0, 'buftype', 'nofile')
+vim.api.nvim_buf_set_option(0, 'filetype', 'lua')
+vim.api.nvim_buf_set_option(0, 'modifiable', true)
 {{< / highlight >}}
 
 The name of a buffer is not a standard option, and has it's own function:
 
 {{< highlight lua >}}
-vim.api.nvim_buf_set_name(statusBuffer, 'hg status')
+vim.api.nvim_buf_set_name(statusBuffer, 'my special buffer')
 {{< / highlight >}}
 
