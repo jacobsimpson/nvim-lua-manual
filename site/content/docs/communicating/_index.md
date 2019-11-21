@@ -15,6 +15,33 @@ interactions between VimScript and Lua.
 
 ### Accessing VimL Variables
 
+There are a couple of options.
+
+To access global variables:
+
+{{< highlight lua >}}
+local a = vim.api.nvim_get_var('something')
+vim.api.nvim_set_var('something', 'value')
+{{< / highlight >}}
+
+Which would appear in VimScript as:
+
+{{< highlight viml >}}
+echo g:something
+{{< / highlight >}}
+
+For `v:` variables, like the predefined `v:servername`:
+
+{{< highlight viml >}}
+echo v:servername
+{{< / highlight >}}
+
+becomes:
+
+{{< highlight lua >}}
+local servername = vim.api.nvim_get_vvar("servername")
+{{< / highlight >}}
+
 {{< highlight lua >}}
 local servername = vim.api.nvim_eval("v:servername")
 {{< / highlight >}}
