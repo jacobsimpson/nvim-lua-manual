@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.d8be4f39401d487fe1758d1f3b52ed5b771a8cb7dd1471725f904b33813f5cd2.js" integrity="sha256-2L5POUAdSH/hdY0fO1LtW3cajLfdFHFyX5BLM4E/XNI="></script>
+<script defer src="/en.search.min.d19ef516e9d5862c5483626aea8a83c5f64ac651687ecd9f4bd2208df01c4568.js" integrity="sha256-0Z71FunVhixUg2Jq6oqDxfZKxlFofs2fS9IgjfAcRWg="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/interacting/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -266,6 +266,50 @@ https://github.com/alex-shpak/hugo-book
 <h3 id="a-floating-window">A Floating Window</h3>
 
 <h4 id="a-floating-window-with-borders">A Floating Window with Borders</h4>
+
+<p>At the moment this is no native support margins or borders on floating windows,
+so there is a work around to nest floating windows. It is outlined in VimScript
+<a href="https://github.com/neovim/neovim/issues/9718#issuecomment-487334384">here</a> and
+converted into Lua
+<a href="https://gabrielpoca.com/2019-11-13-a-bit-more-lua-in-your-vim/">here</a>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">NavigationFloatingWin</span>()
+  <span style="color:#75715e">-- get the editor&#39;s max width and height</span>
+  <span style="color:#66d9ef">local</span> width <span style="color:#f92672">=</span> vim.api.nvim_get_option(<span style="color:#e6db74">&#34;columns&#34;</span>)
+  <span style="color:#66d9ef">local</span> height <span style="color:#f92672">=</span> vim.api.nvim_get_option(<span style="color:#e6db74">&#34;lines&#34;</span>)
+
+  <span style="color:#75715e">-- create a new, scratch buffer, for fzf</span>
+  <span style="color:#66d9ef">local</span> buf <span style="color:#f92672">=</span> vim.api.nvim_create_buf(<span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">true</span>)
+  vim.api.nvim_buf_set_option(buf, <span style="color:#e6db74">&#39;buftype&#39;</span>, <span style="color:#e6db74">&#39;nofile&#39;</span>)
+
+  <span style="color:#75715e">-- if the editor is big enough</span>
+  <span style="color:#66d9ef">if</span> (width <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">150</span> <span style="color:#f92672">or</span> height <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">35</span>) <span style="color:#66d9ef">then</span>
+    <span style="color:#75715e">-- fzf&#39;s window height is 3/4 of the max height, but not more than 30</span>
+    <span style="color:#66d9ef">local</span> win_height <span style="color:#f92672">=</span> math.min(math.ceil(height <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>), <span style="color:#ae81ff">30</span>)
+    <span style="color:#66d9ef">local</span> win_width
+
+    <span style="color:#75715e">-- if the width is small</span>
+    <span style="color:#66d9ef">if</span> (width <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">150</span>) <span style="color:#66d9ef">then</span>
+      <span style="color:#75715e">-- just subtract 8 from the editor&#39;s width</span>
+      win_width <span style="color:#f92672">=</span> math.ceil(width <span style="color:#f92672">-</span> <span style="color:#ae81ff">8</span>)
+    <span style="color:#66d9ef">else</span>
+      <span style="color:#75715e">-- use 90% of the editor&#39;s width</span>
+      win_width <span style="color:#f92672">=</span> math.ceil(width <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.9</span>)
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#75715e">-- settings for the fzf window</span>
+    <span style="color:#66d9ef">local</span> opts <span style="color:#f92672">=</span> {
+      relative <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;editor&#34;</span>,
+      width <span style="color:#f92672">=</span> win_width,
+      height <span style="color:#f92672">=</span> win_height,
+      row <span style="color:#f92672">=</span> math.ceil((height <span style="color:#f92672">-</span> win_height) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>),
+      col <span style="color:#f92672">=</span> math.ceil((width <span style="color:#f92672">-</span> win_width) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+    }
+
+    <span style="color:#75715e">-- create a new floating window, centered in the editor</span>
+    <span style="color:#66d9ef">local</span> win <span style="color:#f92672">=</span> vim.api.nvim_open_win(buf, <span style="color:#66d9ef">true</span>, opts)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
 
 <h4 id="for-a-tool-tip">For a tool tip</h4>
 
