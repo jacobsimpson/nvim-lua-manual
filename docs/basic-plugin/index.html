@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.a5cc69373363bcbbd66884bd9e36139089a2a81cd1b093216554864f1c5b8d9c.js" integrity="sha256-pcxpNzNjvLvWaIS9njYTkImiqBzRsJMhZVSGTxxbjZw="></script>
+<script defer src="/en.search.min.d7974fc94cf8917ecd6822b7093bb68ce2f6bcdbbd61a7ee170ff8b5a88498de.js" integrity="sha256-15dPyUz4kX7NaCK3CTu2jOL2vNu9YafuFw/4taiEmN4="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/basic-plugin/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -249,9 +249,38 @@ https://github.com/alex-shpak/hugo-book
 
 <h1 id="a-basic-lua-plugin">A Basic Lua Plugin</h1>
 
+<h2 id="quick-start">Quick Start</h2>
+
+<p>There are a few different files involved in setting up a plugin, and a specific
+directory structure. I like to start from a working plugin and start adding my
+code.</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bash <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  &lt;<span style="color:#f92672">(</span>curl -o- https://raw.githubusercontent.com/jacobsimpson/nvim-example-lua-plugin/master/install.sh<span style="color:#f92672">)</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  mynewplugin</code></pre></div>
+
+<p>Once that is done, you have a new plugin ready to go. It doesn&rsquo;t do anything
+except print some messages, but it is enough to get you started.</p>
+
+<p>To use the new plugin, add it to your <code>runtimepath</code> when starting Neovim.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvim --cmd <span style="color:#e6db74">&#34;set rtp+=./mynewplugin&#34;</span></code></pre></div>
+
+<h2 id="more-detail">More Detail</h2>
+
+<p>The <code>vim</code> file in the <code>plugin</code> directory will be executed when vim starts. The
+<code>lua require(...)</code> statements in the <code>vim</code> files will load Lua files.</p>
+
+<p>In order to satisfy the <code>require</code> call, the Lua interpreter that is part of
+Neovim will look in the <code>lua</code> subdirectory of the directories on the
+<code>runtimepath</code> for the arguments specified in the call to <code>require</code>. In the
+example above, where <code>./mynewplugin</code> was added to the <code>runtimepath</code>,
+<code>require(&quot;mynewplugin&quot;)</code> would cause the Lua interpreter to look in
+<code>./mynewplugin/lua</code> for a <code>mynewplugin</code> directory.</p>
+
+<p>If <code>require</code> points to a directory, the interpreter will load the
+<code>init.lua</code> file in that directory. If the <code>require</code> points to a file, the
+interpreter will append a <code>.lua</code> extension, and load the file.</p>
 
 <p>TODO: There have been a lot of Neovim improvements, this example could probably
 use some  updates. Also, if the <code>luamodule</code> was named <code>myluamodule</code> it would be
@@ -276,7 +305,11 @@ just a little more obvious that the directory name/module name can be changed.</
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#a-basic-lua-plugin">A Basic Lua Plugin</a></li>
+<li><a href="#a-basic-lua-plugin">A Basic Lua Plugin</a>
+<ul>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#more-detail">More Detail</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>
