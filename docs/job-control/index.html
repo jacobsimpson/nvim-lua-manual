@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Job Control"><meta property="og:title" content="" />
+<meta name="description" content="Job Control"><meta property="og:title" content="Job Control" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://jacobsimpson.github.io/docs/job-control/" />
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.d7974fc94cf8917ecd6822b7093bb68ce2f6bcdbbd61a7ee170ff8b5a88498de.js" integrity="sha256-15dPyUz4kX7NaCK3CTu2jOL2vNu9YafuFw/4taiEmN4="></script>
+<script defer src="/en.search.min.e2157c5932acc66b076b1f8a4cdf44575cec6b4072cc4507b7b8375aba9a65d3.js" integrity="sha256-4hV8WTKsxmsHax&#43;KTN9EV1zsa0ByzEUHt7g3WrqaZdM="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/job-control/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -127,38 +127,6 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/job-control/"  class="active">
-      Job Control
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
   <a href="/docs/buffers-and-windows/" >
       Buffers and Windows
   </a>
@@ -196,6 +164,38 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/job-control/"  class="active">
+      Job Control
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
 
 
 
@@ -249,7 +249,13 @@ https://github.com/alex-shpak/hugo-book
 
 <h1 id="job-control">Job Control</h1>
 
+<p>The Neovim job control API is available in Lua like so:</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">vim.fn.jobstart(<span style="color:#e6db74">&#34;ls&#34;</span>)</code></pre></div>
+
+<p>However, at the moment, it is unable to accept the second parameter that allows
+callbacks to be configured. There is an open issue,
+<a href="https://github.com/neovim/neovim/issues/7607">neovim/7607</a>.</p>
 
 <h2 id="networking-communication-and-job-control">Networking, Communication and Job Control</h2>
 

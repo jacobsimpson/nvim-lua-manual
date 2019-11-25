@@ -1,13 +1,20 @@
 ---
 bookCollapseSection: true
 weight: 20
+title: "Job Control"
 ---
 
 # Job Control
 
+The Neovim job control API is available in Lua like so:
+
 {{< highlight lua >}}
 vim.fn.jobstart("ls")
 {{< / highlight >}}
+
+However, at the moment, it is unable to accept the second parameter that allows
+callbacks to be configured. There is an open issue,
+[neovim/7607](https://github.com/neovim/neovim/issues/7607).
 
 ## Networking, Communication and Job Control
 
