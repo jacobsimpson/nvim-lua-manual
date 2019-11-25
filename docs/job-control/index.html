@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.af2e418e1ce4e29526758e2833686b18a3e0dbc0dc19a54c225af57b9ab0f8c8.js" integrity="sha256-ry5Bjhzk4pUmdY4oM2hrGKPg28DcGaVMIlr1e5qw&#43;Mg="></script>
+<script defer src="/en.search.min.da57f9df115922de0c31725fb42eeb779c344af0a67a504f6020cc5e41fe582c.js" integrity="sha256-2lf53xFZIt4MMXJftC7rd5w0SvCmelBPYCDMXkH&#43;WCw="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/job-control/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -275,6 +275,25 @@ https://github.com/alex-shpak/hugo-book
 
 <h1 id="job-control">Job Control</h1>
 
+<p>I&rsquo;m using this term to refer to starting, communicating with and otherwise
+controlling external processes. There are a few options available, with
+different trade offs.</p>
+
+<h2 id="vim-system-or-systemlist">Vim <code>system</code> or <code>systemlist</code></h2>
+
+<p>It is possible to use the Vim
+<a href="https://neovim.io/doc/user/eval.html#system()"><code>system</code></a>  or
+<a href="https://neovim.io/doc/user/eval.html#systemlist()"><code>systemlist</code></a> API.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">local</span> result <span style="color:#f92672">=</span> vim.fn.system(<span style="color:#e6db74">&#34;ls&#34;</span>)
+<span style="color:#66d9ef">if</span> vim.api.nvim_get_vvar(<span style="color:#e6db74">&#34;shell_error&#34;</span>) <span style="color:#960050;background-color:#1e0010">!</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
+    <span style="color:#75715e">-- Error handling.</span>
+<span style="color:#66d9ef">else</span>
+    <span style="color:#75715e">-- Success handling.</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
+
+<h2 id="vim-jobstart">Vim <code>jobstart</code></h2>
+
 <p>The Neovim job control API is available in Lua like so:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">vim.fn.jobstart(<span style="color:#e6db74">&#34;ls&#34;</span>)</code></pre></div>
@@ -282,6 +301,22 @@ https://github.com/alex-shpak/hugo-book
 <p>However, at the moment, it is unable to accept the second parameter that allows
 callbacks to be configured. There is an open issue,
 <a href="https://github.com/neovim/neovim/issues/7607">neovim/7607</a>.</p>
+
+<h2 id="lua-popen">Lua <code>popen</code></h2>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">local</span> handle <span style="color:#f92672">=</span> io.popen(<span style="color:#e6db74">&#34;ls&#34;</span>)
+<span style="color:#66d9ef">local</span> result <span style="color:#f92672">=</span> handle:read(<span style="color:#e6db74">&#34;*a&#34;</span>)
+handle:close()</code></pre></div>
+
+<p>The drawbacks are:</p>
+
+<ol>
+<li><p>It isn&rsquo;t straightforward to capture the result code of the process
+execution. <a href="https://stackoverflow.com/questions/7607384/getting-return-status-and-program-output/14031974">Stackoverflow
+Discussion</a></p></li>
+
+<li><p>It isn&rsquo;t straightforward to capture the stdout and stderr.</p></li>
+</ol>
 
 <h2 id="networking-communication-and-job-control">Networking, Communication and Job Control</h2>
 
@@ -310,6 +345,9 @@ callbacks to be configured. There is an open issue,
 <ul>
 <li><a href="#job-control">Job Control</a>
 <ul>
+<li><a href="#vim-system-or-systemlist">Vim <code>system</code> or <code>systemlist</code></a></li>
+<li><a href="#vim-jobstart">Vim <code>jobstart</code></a></li>
+<li><a href="#lua-popen">Lua <code>popen</code></a></li>
 <li><a href="#networking-communication-and-job-control">Networking, Communication and Job Control</a></li>
 <li><a href="#how-to-use-neovim-to-send-a-message-to-a-running-neovim-instance">How to use Neovim to send a message to a Running Neovim instance</a></li>
 </ul></li>
