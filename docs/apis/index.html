@@ -2,15 +2,14 @@
 <html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.59.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Introduction"><meta property="og:title" content="Introduction" />
+<meta name="description" content="Neovim APIs"><meta property="og:title" content="Neovim APIs" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://jacobsimpson.github.io/" />
+<meta property="og:url" content="http://jacobsimpson.github.io/docs/apis/" />
 
-<title>Introduction | Scripting Neovim with Lua</title>
+<title>Neovim APIs | Scripting Neovim with Lua</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
@@ -19,7 +18,7 @@
 
 <script defer src="/en.search.min.af2e418e1ce4e29526758e2833686b18a3e0dbc0dc19a54c225af57b9ab0f8c8.js" integrity="sha256-ry5Bjhzk4pUmdY4oM2hrGKPg28DcGaVMIlr1e5qw&#43;Mg="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/index.xml" title="Scripting Neovim with Lua" />
+<link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/apis/index.xml" title="Scripting Neovim with Lua" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -102,7 +101,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/apis/" >
+  <a href="/docs/apis/"  class="active">
       Neovim APIs
   </a>
 
@@ -113,6 +112,12 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+  </ul>
+  
 
 
 
@@ -262,27 +267,31 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>Introduction</strong>
+  <strong>Neovim APIs</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="building-neovim-plugins-in-lua">Building Neovim Plugins in Lua</h1>
+<h1 id="neovim-apis">Neovim APIs</h1>
 
-<h2 id="first">First</h2>
+<p>There are a variety of APIs available for scripting Neovim using Lua.</p>
 
-<p>To acknowledge, all this information is available somewhere, most of it in the
-Neovim <code>:help</code> documentation. I just find it easier to pull it all together.
-I&rsquo;m not a proficient plugin writer, and when I do write a plugin, I&rsquo;m just
-trying to quickly solve a problem and get back to work. I want a place to see
-examples and copy working code.</p>
+<ul>
+<li><code>vim.split</code> or <code>vim.gsplit</code></li>
+<li><code>vim.trim</code></li>
+<li><a href="https://neovim.io/doc/user/api.html"><code>vim.api.nvim_*</code></a></li>
+<li>Built in <a href="https://neovim.io/doc/user/eval.html#functions">functions</a> are available as <code>vim.fn.*</code></li>
+<li>Lua APIs</li>
+</ul>
 
-<p>I don&rsquo;t really enjoy working in VimScript, so this is as much about Lua as
-possible. However, at heart, I am a pragmatist, so where it makes sense, I put
-things in VimScript. <code>autocmd</code>, key mappings, commands and the like. I don&rsquo;t
-cover how to do any of that stuff in much depth here, there are much better
-resources available.</p>
+<h2 id="string-functions">String Functions</h2>
+
+<ul>
+<li><code>vim.split</code> or <code>vim.gsplit</code></li>
+<li><code>vim.trim</code></li>
+<li><code>string.*</code> from Lua</li>
+</ul>
 </article>
 
       <div class="book-footer justify-between">
@@ -303,9 +312,9 @@ resources available.</p>
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#building-neovim-plugins-in-lua">Building Neovim Plugins in Lua</a>
+<li><a href="#neovim-apis">Neovim APIs</a>
 <ul>
-<li><a href="#first">First</a></li>
+<li><a href="#string-functions">String Functions</a></li>
 </ul></li>
 </ul>
 </nav>

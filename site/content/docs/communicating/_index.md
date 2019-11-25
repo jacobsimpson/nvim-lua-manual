@@ -15,50 +15,41 @@ interactions between VimScript and Lua.
 
 ### Accessing VimL Variables
 
-There are a couple of options.
+There are a number of
+[variables](https://neovim.io/doc/user/eval.html#internal-variables) with
+different scopes. Depending on the scope of the variable, there are different
+APIs for accessing the values.
 
-To access global variables:
+1.  Global variables (`echo g:something`):
 
-{{< highlight lua >}}
+    {{< highlight lua >}}
 local a = vim.api.nvim_get_var('something')
 vim.api.nvim_set_var('something', 'value')
 {{< / highlight >}}
 
-Which would appear in VimScript as:
+2.  Vim variables (`echo v:servername`):
 
-{{< highlight vim >}}
-echo g:something
-{{< / highlight >}}
-
-For `v:` variables, like the predefined `v:servername`:
-
-{{< highlight vim >}}
-echo v:servername
-{{< / highlight >}}
-
-becomes:
-
-{{< highlight lua >}}
+    {{< highlight lua >}}
 print(vim.api.nvim_get_vvar("servername"))
 {{< / highlight >}}
 
-And for general expression evaluation, which can include accessing variables:
+3.  And for general expression evaluation, which can include accessing variables:
 
-{{< highlight lua >}}
+    {{< highlight lua >}}
 local servername = vim.api.nvim_eval("v:servername")
 {{< / highlight >}}
 
 ### Calling VimL Functions
 
 {{< highlight lua >}}
-nvim_call_function(...)
+vim.api.nvim_call_function(...)
 {{< / highlight >}}
 
 ## From VimScript
 
 ### Calling Lua Code from VimL
 
-{{< highlight lua >}}
+{{< highlight vim >}}
 nvim_execute_lua(...)
 {{< / highlight >}}
 
