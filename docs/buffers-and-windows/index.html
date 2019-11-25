@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.a07e0940ab0cd373965ffbdcdaf58024259bad6602b6b1e60739150b2f9cf66c.js" integrity="sha256-oH4JQKsM03OWX/vc2vWAJCWbrWYCtrHmBzkVCy&#43;c9mw="></script>
+<script defer src="/en.search.min.a5cc69373363bcbbd66884bd9e36139089a2a81cd1b093216554864f1c5b8d9c.js" integrity="sha256-pcxpNzNjvLvWaIS9njYTkImiqBzRsJMhZVSGTxxbjZw="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/buffers-and-windows/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -258,10 +258,10 @@ is <code>:set nomodifiable</code>, or <code>:set buftype=nofile</code>.</p>
 keep in mind.</p>
 
 <ol>
-<li><p>The option may be a buffer, window or global option, and if you choose the
-wrong API, it is an error. So if you are trying to set an option, and you
-are getting an error indicating there is no such option, try a different
-API.</p>
+<li><p>The option may be a buffer, window or global option, and there is a
+different API call for each. If you choose the wrong API, the API call will
+result in an error. So if you are trying to set an option, and you are
+getting an error indicating there is no such option, try a different API.</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">vim.api.nvim_buf_set_option(buf, <span style="color:#e6db74">&#39;modifiable&#39;</span>, <span style="color:#66d9ef">false</span>)
 vim.api.nvim_win_set_option(win, <span style="color:#e6db74">&#39;winhighlight&#39;</span>, <span style="color:#e6db74">&#39;Normal:Normal&#39;</span>)

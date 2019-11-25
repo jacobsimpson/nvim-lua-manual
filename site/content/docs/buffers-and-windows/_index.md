@@ -14,10 +14,10 @@ is `:set nomodifiable`, or `:set buftype=nofile`.
 When using the the Neovim API to set options, I've found a couple things to
 keep in mind.
 
-1.  The option may be a buffer, window or global option, and if you choose the
-    wrong API, it is an error. So if you are trying to set an option, and you
-    are getting an error indicating there is no such option, try a different
-    API.
+1.  The option may be a buffer, window or global option, and there is a
+    different API call for each. If you choose the wrong API, the API call will
+    result in an error. So if you are trying to set an option, and you are
+    getting an error indicating there is no such option, try a different API.
 
     {{< highlight lua >}}
 vim.api.nvim_buf_set_option(buf, 'modifiable', false)
