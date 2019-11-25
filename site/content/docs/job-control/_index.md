@@ -14,7 +14,7 @@ different trade offs.
 
 It is possible to use the Vim
 [`system`](https://neovim.io/doc/user/eval.html#system())  or
-[`systemlist`](https://neovim.io/doc/user/eval.html#systemlist()) API.
+[`systemlist`](https://neovim.io/doc/user/eval.html#systemlist()) APIs.
 
 {{< highlight lua >}}
 local result = vim.fn.system("ls")
@@ -24,6 +24,10 @@ else
     -- Success handling.
 end
 {{< / highlight >}}
+
+The drawbacks are:
+
+1.  Neovim will be paused while the external process completes execution.
 
 ## Vim `jobstart`
 
@@ -52,6 +56,8 @@ The drawbacks are:
     Discussion](https://stackoverflow.com/questions/7607384/getting-return-status-and-program-output/14031974)
 
 2.  It isn't straightforward to capture the stdout and stderr.
+
+3.  Neovim will be paused while the external process completes execution.
 
 ## Networking, Communication and Job Control
 

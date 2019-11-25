@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.da57f9df115922de0c31725fb42eeb779c344af0a67a504f6020cc5e41fe582c.js" integrity="sha256-2lf53xFZIt4MMXJftC7rd5w0SvCmelBPYCDMXkH&#43;WCw="></script>
+<script defer src="/en.search.min.ab7a002670bd4c71e1b585c91071874faff58e0c74bdb3d6451fb3db0f493497.js" integrity="sha256-q3oAJnC9THHhtYXJEHGHT6/1jgx0vbPWRR&#43;z2w9JNJc="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/job-control/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -283,7 +283,7 @@ different trade offs.</p>
 
 <p>It is possible to use the Vim
 <a href="https://neovim.io/doc/user/eval.html#system()"><code>system</code></a>  or
-<a href="https://neovim.io/doc/user/eval.html#systemlist()"><code>systemlist</code></a> API.</p>
+<a href="https://neovim.io/doc/user/eval.html#systemlist()"><code>systemlist</code></a> APIs.</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">local</span> result <span style="color:#f92672">=</span> vim.fn.system(<span style="color:#e6db74">&#34;ls&#34;</span>)
 <span style="color:#66d9ef">if</span> vim.api.nvim_get_vvar(<span style="color:#e6db74">&#34;shell_error&#34;</span>) <span style="color:#960050;background-color:#1e0010">!</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
@@ -291,6 +291,12 @@ different trade offs.</p>
 <span style="color:#66d9ef">else</span>
     <span style="color:#75715e">-- Success handling.</span>
 <span style="color:#66d9ef">end</span></code></pre></div>
+
+<p>The drawbacks are:</p>
+
+<ol>
+<li>Neovim will be paused while the external process completes execution.</li>
+</ol>
 
 <h2 id="vim-jobstart">Vim <code>jobstart</code></h2>
 
@@ -316,6 +322,8 @@ execution. <a href="https://stackoverflow.com/questions/7607384/getting-return-s
 Discussion</a></p></li>
 
 <li><p>It isn&rsquo;t straightforward to capture the stdout and stderr.</p></li>
+
+<li><p>Neovim will be paused while the external process completes execution.</p></li>
 </ol>
 
 <h2 id="networking-communication-and-job-control">Networking, Communication and Job Control</h2>
