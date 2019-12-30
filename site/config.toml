@@ -1,4 +1,4 @@
-baseURL = "http://jacobsimpson.github.io"
+baseURL = "http://jacobsimpson.github.io/nvim-lua-manual/"
 languageCode = "en-us"
 title = "Scripting Neovim with Lua"
 theme = "book"

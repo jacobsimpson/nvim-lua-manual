@@ -3,47 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/basic-plugin/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/docs/basic-plugin/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/apis/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/docs/apis/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/communicating/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/docs/communicating/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/buffers-and-windows/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/docs/buffers-and-windows/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/interacting/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/docs/interacting/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/job-control/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/docs/job-control/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/basic-plugin/hidden/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/docs/basic-plugin/hidden/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/categories/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/categories/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/docs/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/docs/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/</loc>
   </url>
   
   <url>
-    <loc>http://jacobsimpson.github.io/tags/</loc>
+    <loc>http://jacobsimpson.github.io/nvim-lua-manual/tags/</loc>
   </url>
   
 </urlset>
