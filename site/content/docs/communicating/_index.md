@@ -53,4 +53,10 @@ vim.api.nvim_call_function(...)
 nvim_execute_lua(...)
 {{< / highlight >}}
 
+Starting in  Neovim 0.5.0, it is possible to invoke global Lua
+functions directly from VimL:
+
+{{< highlight vim >}}
+v:lua.luafunc(arg1, arg2)
+{{< / highlight >}}
 

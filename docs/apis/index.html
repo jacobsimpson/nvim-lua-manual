@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.ab7a002670bd4c71e1b585c91071874faff58e0c74bdb3d6451fb3db0f493497.js" integrity="sha256-q3oAJnC9THHhtYXJEHGHT6/1jgx0vbPWRR&#43;z2w9JNJc="></script>
+<script defer src="/en.search.min.2ff88a29303003e36e108ecf83338e00300c6fc4106b671a3982b84d1302df34.js" integrity="sha256-L/iKKTAwA&#43;NuEI7PgzOOADAMb8QQa2caOYK4TRMC3zQ="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/apis/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -282,15 +282,59 @@ https://github.com/alex-shpak/hugo-book
 <li><code>vim.trim</code></li>
 <li><a href="https://neovim.io/doc/user/api.html"><code>vim.api.nvim_*</code></a></li>
 <li>Built in <a href="https://neovim.io/doc/user/eval.html#functions">functions</a> are available as <code>vim.fn.*</code></li>
+<li>See <code>:help lua-stdlib</code> for more details.</li>
 <li>Lua APIs</li>
 </ul>
 
 <h2 id="string-functions">String Functions</h2>
 
 <ul>
-<li><code>vim.split</code> or <code>vim.gsplit</code></li>
-<li><code>vim.trim</code></li>
+<li><code>join</code></li>
+<li><code>stridx</code></li>
 <li><code>string.*</code> from Lua</li>
+<li><code>strlen</code></li>
+<li><code>strpart</code></li>
+<li><code>strridx</code></li>
+<li><code>submatch</code></li>
+<li><code>substitute</code></li>
+<li><code>vim.split</code> or <code>vim.gsplit</code></li>
+<li><code>vim.stricmp</code></li>
+<li><code>vim.trim</code></li>
+</ul>
+
+<h2 id="directory-functions">Directory Functions</h2>
+
+<ul>
+<li><code>delete</code></li>
+<li><code>filereadable</code></li>
+<li><code>filewritable</code></li>
+<li><code>finddir</code></li>
+<li><code>findfile</code></li>
+<li><code>fnameescape</code></li>
+<li><code>fnamemodify</code></li>
+<li><code>getcwd</code></li>
+<li><code>getfperm</code></li>
+<li><code>getfsize</code></li>
+<li><code>getftime</code></li>
+<li><code>getftype</code></li>
+<li><code>isdirectory</code></li>
+<li><code>mkdir</code></li>
+<li><code>nvim_set_current_dir</code></li>
+<li><code>readdir</code></li>
+<li><code>readfile</code></li>
+<li><code>rename</code></li>
+<li><code>resolve</code></li>
+<li><code>simplify</code></li>
+</ul>
+
+<h2 id="evaluation-execution-functions">Evaluation/Execution Functions</h2>
+
+<ul>
+<li><code>luaeval</code></li>
+<li><code>system</code></li>
+<li><code>systemlist</code></li>
+<li><code>vim.api.nvim_call_function</code></li>
+<li><code>vim.api.nvim_command</code></li>
 </ul>
 </article>
 
@@ -315,6 +359,8 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="#neovim-apis">Neovim APIs</a>
 <ul>
 <li><a href="#string-functions">String Functions</a></li>
+<li><a href="#directory-functions">Directory Functions</a></li>
+<li><a href="#evaluation-execution-functions">Evaluation/Execution Functions</a></li>
 </ul></li>
 </ul>
 </nav>

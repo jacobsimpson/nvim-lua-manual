@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.0379377fb17315c9a560efd4d406aea4535c095a461b220fd9e3d2e9c05550e6.css" integrity="sha256-A3k3f7FzFcmlYO/U1AaupFNcCVpGGyIP2ePS6cBVUOY=">
 
 
-<script defer src="/en.search.min.ab7a002670bd4c71e1b585c91071874faff58e0c74bdb3d6451fb3db0f493497.js" integrity="sha256-q3oAJnC9THHhtYXJEHGHT6/1jgx0vbPWRR&#43;z2w9JNJc="></script>
+<script defer src="/en.search.min.2ff88a29303003e36e108ecf83338e00300c6fc4106b671a3982b84d1302df34.js" integrity="sha256-L/iKKTAwA&#43;NuEI7PgzOOADAMb8QQa2caOYK4TRMC3zQ="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://jacobsimpson.github.io/docs/interacting/index.xml" title="Scripting Neovim with Lua" />
 <!--
@@ -273,6 +273,37 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
+<h1 id="error-handling">Error Handling</h1>
+
+<p>This is not a tutorial on Lua error handling mechanisms, it is a discussion of
+Neovim error handling conventions.</p>
+
+<p>The <a href="https://github.com/neovim/neovim/issues/11311">preference</a> is:</p>
+
+<ol>
+<li>Raise an error (with <code>error</code> or <code>assert</code>) for syntax problems.</li>
+<li>Return an error message as the last return value if this is something the
+  caller may like to recover from.</li>
+</ol>
+
+<p>Also, when I ran a test program, it seems that pcall(&hellip;) doesn&rsquo;t fully catch
+errors. They still end up being displayed.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">a</span>()
+    print(<span style="color:#e6db74">&#34;one&#34;</span>)
+    error(<span style="color:#e6db74">&#34;this is something&#34;</span>)
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">local</span> result, err <span style="color:#f92672">=</span> pcall(a())</code></pre></div>
+
+<ul>
+<li>Spend some more time testing this.</li>
+<li>Try the <code>xpcall</code> method as well.</li>
+<li>Test this out in a standard lua interpreter, to see if my understanding of</li>
+<li>pcall matches reality.</li>
+</ul>
+
 <h1 id="interacting-with-the-user">Interacting with the User</h1>
 
 <h2 id="echo">Echo</h2>
@@ -378,6 +409,7 @@ vim.api.nvim_win_set_option(win, <span style="color:#e6db74">&#39;winhl&#39;</sp
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
 <ul>
+<li><a href="#error-handling">Error Handling</a></li>
 <li><a href="#interacting-with-the-user">Interacting with the User</a>
 <ul>
 <li><a href="#echo">Echo</a></li>

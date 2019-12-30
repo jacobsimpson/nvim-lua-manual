@@ -4,6 +4,35 @@ weight: 20
 title: "Interacting with the User"
 ---
 
+# Error Handling
+
+This is not a tutorial on Lua error handling mechanisms, it is a discussion of
+Neovim error handling conventions.
+
+The [preference](https://github.com/neovim/neovim/issues/11311) is:
+
+1.    Raise an error (with `error` or `assert`) for syntax problems.
+2.    Return an error message as the last return value if this is something the
+      caller may like to recover from.
+
+Also, when I ran a test program, it seems that pcall(...) doesn't fully catch
+errors. They still end up being displayed.
+
+{{< highlight lua >}}
+function a()
+    print("one")
+    error("this is something")
+    return 3
+end
+
+local result, err = pcall(a())
+{{< / highlight >}}
+
+-  Spend some more time testing this.
+-  Try the `xpcall` method as well.
+-  Test this out in a standard lua interpreter, to see if my understanding of
+-  pcall matches reality.
+
 # Interacting with the User
 
 ## Echo
